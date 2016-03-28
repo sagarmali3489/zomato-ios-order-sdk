@@ -8,7 +8,7 @@
 
 
 #import "DeliveryItem.h"
-#import <ZMTApiManageriOS/ZomatoObject.h>
+#import "ZomatoObject.h"
 
 @interface DeliveryGroup : ZomatoObject<NSCopying>
 

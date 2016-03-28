@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Zomato Media Pvt. Ltd. All rights reserved.
 //
 
-#import <ZMTApiManageriOS/ZMTApiManageriOS.h>
+#import "ZomatoObject.h"
 #import "Location.h"
 #import "Promo.h"
 
