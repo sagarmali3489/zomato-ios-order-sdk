@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <ZMTApiManageriOS/ZMTApiManageriOS.h>
+#import "ZomatoObject.h"
 
 @class Restaurant;
 

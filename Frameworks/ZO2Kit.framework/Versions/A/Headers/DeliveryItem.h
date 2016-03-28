@@ -7,7 +7,7 @@
 //
 
 
-#import <ZMTApiManageriOS/ZMTApiManageriOS.h>
+#import "ZomatoObject.h"
 
 #import "DeliveryGroup.h"
 
