@@ -37,16 +37,19 @@ extern NSString *const zOrderPlaced;
 /**
  *  this will be called whenever user taps on the right action bar button in the navigation bar present on the home restaurant search page. (Conform to ZOnlineOrderManagerDelegate protocol and call `setDelegate:` with the `sharedInitializer` object)
  */
+@optional
 - (void)didTapHomeRightActionBarButtonOnNavigationContoller:(UINavigationController *)navigationController;
 
 /**
  *  this will be called whenever the user dismisses the session for ordering. The `isOrderPlaced` BOOL flag tells whether the order was placed in the current session.
  */
+@optional
 - (void)didDismissZomatoOrderFlowWithOrderPlaced:(BOOL)isOrderPlaced;
 
-/*
+/**
  * this method can be used to register and track events.
  */
+@optional
 - (void)trackZomatoEvent:(NSString *)eventName trackingEventType:(ZomatoTrackingEventType)eventType data:(NSDictionary *)dataDict;
 
 @end
@@ -191,6 +194,17 @@ extern NSString *const zOrderPlaced;
  *  @param colorValue   Color Value
  */
 + (void)setBottomBarColor:(NSInteger)colorValue;
+
+
+/**
+ *
+ *  Set this to yes if you are using to have dark theme. Default value is NO
+ *
+ *  @param BOOL value
+ */
+
+
++ (void)setIsThemeDark:(BOOL)value;
 
 
 // Call given below functions to set font size of different custom labels
@@ -465,10 +479,21 @@ extern NSString *const zOrderPlaced;
 
 
 /**
- * To be used for a for search info strings. Default Value: 0x9d9d9d
+ * To be used for search info strings. Default Value: 0x9d9d9d
  */
 + (void)setColorSearchInfoLabel:(NSInteger)colorSearchInfoLabel;
 
+/**
+ * To be used for backgroundColor. Default Value: 0xFFFFFF
+ */
+
++ (void) setBackgroundColor:(NSInteger)colorBg;
+
+/**
+ * To be used for darkBackgroundColor. Default Value: 0x9d9d9d
+ */
+
++ (void) setDarkBackgroundColor:(NSInteger)colorDarkBg;
 
 /**
  *
@@ -482,10 +507,24 @@ extern NSString *const zOrderPlaced;
  *
  *  On setting value to YES, it will dismiss order flow after placing an order
  *
- *  @param value : BOOL  Default Value:NO
+ *  @param value : BOOL  Default Value:YES
  */
 + (void)shouldDismissOrderFlowAfterPlacingOrder:(BOOL)value;
 
+/**
+ *
+ *  Set the restaurant id before starting the order flow to open a particular restaurant
+ *
+ *  @param value : (NSNumber *) id of a restaurant
+ */
+- (void)setRestaurantId:(NSNumber *)resId;
 
+/**
+ *
+ *  Set the address of the user before starting the order flow
+ *
+ *  @param value : (NSString *) address of the user
+ */
+- (void)setUserAddress:(NSString *)userAddress;
 
 @end
