@@ -46,6 +46,13 @@ extern NSString *const zOrderPlaced;
 @optional
 - (void)didDismissZomatoOrderFlowWithOrderPlaced:(BOOL)isOrderPlaced;
 
+
+/**
+ *  this will be called whenever the user verifies the phone number. The phone number can be stored at your end and can be passed next time.
+ */
+@optional
+- (void)userSuccessfullyVerifiedPhoneNumber:(NSString *)phoneNumber;
+
 /**
  * this method can be used to register and track events.
  */
@@ -85,10 +92,9 @@ extern NSString *const zOrderPlaced;
 
 /**
  *  Use this to set a delegate conforming to the ZOnlineOrderManagerDelegate protocol.
- *
- *  @param delegate object conforming to ZOnlineOrderManagerDelegate protocol
  */
-- (void)setDelegate:(id<ZOnlineOrderManagerDelegate>)delegate;
+
+@property (nonatomic, weak) id<ZOnlineOrderManagerDelegate> delegate;
 
 /**
  *  Call this function to present the online ordering view controller to present
