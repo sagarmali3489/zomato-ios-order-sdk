@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "PlaceOrderTab.h"
+#import "AccountBannerObject.h"
 
 typedef NS_ENUM(NSInteger, ZomatoTrackingEventType) {
     ZomatoTrackingEventTypePageView,
@@ -95,6 +96,49 @@ extern NSString *const zOrderPlaced;
  */
 
 @property (nonatomic, weak) id<ZOnlineOrderManagerDelegate> delegate;
+
+/**
+ *  Use this to set a first banner on home page. If you are settings the first banner then 
+ *  imageUrl, title, deeplinkUrl, and tagline are REQUIRED properties that needs to be set.
+ */
+
+@property (nonatomic, strong) AccountBannerObject *homePageBannerObject;
+
+
+/**
+ *  Use this to set banner on final page. If you are settings the first banner then
+ *  imageUrl, title, and subtitle are REQUIRED properties that needs to be set.
+ */
+
+@property (nonatomic, strong) AccountBannerObject *finalPaymentPageBannerObject;
+
+
+/**
+ *  Use this to set initial search string if required. Default is nil.
+ */
+
+@property (nonatomic, strong) NSString *initialSearchString;
+
+
+/**
+ *  Use this to set initial search params  dictionary if required. Default is nil.
+ */
+
+@property (nonatomic, strong) NSDictionary *initialSearchParams;
+
+
+/**
+ *  Use this to add space below title text 'Menu' on Menu Page. Required in some font family. Default is nil.
+ */
+
+@property (nonatomic, strong) NSNumber *menuPageHeaderSpace;
+
+/**
+ *  Use this to add/remove space above checkbox and radio button in customization of an item
+ */
+
+@property (nonatomic, strong) NSNumber *customizationSelectionItemEmptySpace;
+
 
 /**
  *  Call this function to present the online ordering view controller to present
