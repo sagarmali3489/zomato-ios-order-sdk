@@ -40,7 +40,6 @@
 * ### Now when you want to place order pass your phone number in this function
 
   * #### For Modal Present
-
 		 [[ZOnlineOrderManager sharedInitializer] startOnlineOrderWithPhoneNumber:@"phone-number-10-digit" viewController:self];
 		 
   * #### For Navigation Push
@@ -59,6 +58,25 @@
 
 * ### To set zomato user token you need to call this function before starting online ordering flow
 		[[ZOnlineOrderManager sharedInitializer] setZomatoUserToken:@"zomatoUserToken"];
+
+* ### To set search query, pass the string in following method
+		[[ZOnlineOrderManager sharedInitializer] setInitialSearchString:<NSString *>];
+
+* ### To add a promo banner on home page, create a 'AccountBannerObject' object and set following properties and then set that banner object
+  * title
+  * subtitle (if required)
+  * imageUrl
+  * deeplinkUrl('zomatosdkorder://order/\<res_id\>') 
+  * tagline(which is tag shown on top of banner)
+		
+		[[ZOnlineOrderManager sharedInitializer] setHomePageBannerObject:\<banner object\>];
+
+* ### To add a banner on payment page, create a 'AccountBannerObject' object and set following properties and then set that banner object
+  * title
+  * subtitle (if required)
+  * imageUrl
+
+		[[ZOnlineOrderManager sharedInitializer] setFinalPaymentPageBannerObject:\<banner object\>];
 
 * ### To get zomato user token you need to call this function and block in the function's params is invoked after token is generated
 		[[ZOnlineOrderManager sharedInitializer] getZomatoUserTokenWithCompletionHandler:^(NSError *error, NSString *zomatoUserToken){ // code  }];
