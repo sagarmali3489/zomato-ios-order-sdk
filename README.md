@@ -46,11 +46,9 @@
 		[[ZOnlineOrderManager sharedInitializer] startOnlineOrderWithPhoneNumber:@"phone-number-10-digit" pushOnNavViewController:self.navigationController];
 
 * ### When order will be placed you will receive a notification with PlaceOrderTab Object inside it.
-
 		extern NSString *const zOrderPlaced;
 
 * ### When order status will change you will receive a notification with PlaceOrderTab Object inside it.
-
 		extern NSString *const zOrderStatusChanged;
 
 * ### To open order detail pass order id in the following function
@@ -62,21 +60,31 @@
 * ### To set search query, pass the string in following method
 		[[ZOnlineOrderManager sharedInitializer] setInitialSearchString:<NSString *>];
 
-* ### To add a promo banner on home page, create a 'AccountBannerObject' object and set following properties and then set that banner object
+* ### To add a promo banner on home page, create a 'AccountBannerObject' object and then set that banner object using following function
+		[[ZOnlineOrderManager sharedInitializer] setHomePageBannerObject:<banner object>];
+
+	#### _Properties required to be set in Account Banner Object_
+
   * title
   * subtitle (if required)
   * imageUrl
-  * deeplinkUrl('zomatosdkorder://order/\<res_id\>') 
-  * tagline(which is tag shown on top of banner)
-		
-		[[ZOnlineOrderManager sharedInitializer] setHomePageBannerObject:\<banner object\>];
+  * deeplinkUrl ('zomatosdkorder://order/\<res_id\>') 
+  * tagline
 
-* ### To add a banner on payment page, create a 'AccountBannerObject' object and set following properties and then set that banner object
+
+* ### To add a banner on payment page, create a 'AccountBannerObject' object then set that banner object using following function
+		[[ZOnlineOrderManager sharedInitializer] setFinalPaymentPageBannerObject:<banner object>];
+  
+	#### _Properties required to be set in Account Banner Object_
+
   * title
   * subtitle (if required)
   * imageUrl
 
-		[[ZOnlineOrderManager sharedInitializer] setFinalPaymentPageBannerObject:\<banner object\>];
+
+* ### To set cuisine filters, create a dictionary with setting key as 'key' from cuisine object and value  as 'value' from cuisine object. and pass the dictionary using
+		[[ZOnlineOrderManager sharedInitializer] setInitialSearchParams:<NSDictionary object>];
+
 
 * ### To get zomato user token you need to call this function and block in the function's params is invoked after token is generated
 		[[ZOnlineOrderManager sharedInitializer] getZomatoUserTokenWithCompletionHandler:^(NSError *error, NSString *zomatoUserToken){ // code  }];
